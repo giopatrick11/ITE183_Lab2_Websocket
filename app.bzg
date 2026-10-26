@@ -1,0 +1,28 @@
+include("lib/http.bzg");
+
+var server = http(8000);
+
+server.get = function (path, data) {
+    if (path == "/") {
+        server.sendFile("public/index.html");
+    } else {
+        print("Unknown HTTP path: " + path);
+        server.sendResponse(readFile("public/404.html"), "text/html", 404);
+    }
+};
+
+server.onConnect = function (clientId) {
+    print("Client connected: " + clientId);
+    server.send(clientId, "Welcome! You are connected to the Lab 2 chat.");
+};
+
+server.onData = function (message, clientId) {
+    print("Client " + clientId + " sent: " + message);
+    server.sendAll("Client " + clientId + ": " + message);
+};
+
+server.onDisconnect = function (clientId) {
+    print("Client disconnected: " + clientId);
+};
+
+server.run();
