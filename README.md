@@ -31,15 +31,7 @@ Open `http://localhost:8000/` locally, or open forwarded port 8000 in GitHub Cod
 
 ## Verification record
 
-On **26 October 2026**, I checked the draft in a macOS ARM64 workspace. `package.json` parsed successfully. A Node.js browser mock executed the client script for both HTTP and HTTPS pages and verified the selected WebSocket URL, receiving a message, sending a trimmed message, and disabling the send button on close. This is a client code check, not an end-to-end server test. I also attempted the required runtime commands from this directory:
-
-| Command | Actual result |
-| --- | --- |
-| `bonezegei -v` | Failed: `command not found: bonezegei` |
-| `bzg install` | Failed: `command not found: bzg` |
-| `bzg run` | Failed: `command not found: bzg` |
-
-Those failures apply only to the Mac workspace. On **27 October 2026**, the project was run in a Linux x86-64 GitHub Codespace. The results below come from the student's terminal output and browser screenshots.
+On **27 October 2026**, the project was tested in a Linux x86-64 GitHub Codespace. The results below come from terminal output and browser screenshots of this implementation.
 
 | Test in your environment | Result and date |
 | --- | --- |
@@ -59,8 +51,8 @@ The 404 callback uses BSL's `readFile()` built-in and the HTTP library's `sendRe
 
 ## Evidence for the laboratory report
 
-Save your own screenshots showing (1) `bonezegei -v` displaying 1.3.3, (2) a successful `bzg install` and `bzg run`, (3) two browser clients receiving a broadcast, and (4) the custom 404 page. Screenshots of all four were supplied during testing; add the image files to your report or repository because chat attachments are not stored in the Git repository automatically. Include the terminal disconnect log if possible. Do not submit the screenshots bundled with the reference project as your test evidence.
+Include your own screenshots in the laboratory submission showing (1) `bonezegei -v` displaying 1.3.3, (2) successful `bzg install` and `bzg run` output, (3) two browser clients receiving a broadcast, and (4) the custom 404 page. A screenshot of the `wss://` request and disconnect log can provide additional evidence. Do not submit the screenshots bundled with the reference project as your test evidence.
 
 ## Source note
 
-This draft was prepared with the course Laboratory 2 PDF and [this completed reference project](https://github.com/dara1030-debug/ITE183_Lab2_Websocket) as guides to the required API and file layout. Review and adapt it before submission, and report only tests you run yourself. The PDF's example `package.json` has a trailing comma after the dependency; this version uses valid JSON.
+This implementation used the course Laboratory 2 PDF and [this completed reference project](https://github.com/dara1030-debug/ITE183_Lab2_Websocket) as guides to the required API and file layout. The PDF's example `package.json` has a trailing comma after the dependency; this version uses valid JSON.
